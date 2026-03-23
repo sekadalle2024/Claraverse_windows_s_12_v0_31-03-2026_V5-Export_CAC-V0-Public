@@ -279,9 +279,84 @@ def generate_section_html_liasse(
 
 
 def generate_css_liasse() -> str:
-    """Génère le CSS pour le format liasse officielle"""
+    """Génère le CSS pour le format liasse officielle avec accordéons"""
     return """
     <style>
+    /* Container principal */
+    .etats-fin-container {
+        font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        max-width: 100%;
+        margin: 16px 0;
+    }
+    
+    .etats-fin-header {
+        background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        color: white;
+        padding: 20px;
+        border-radius: 12px 12px 0 0;
+        text-align: center;
+    }
+    
+    .etats-fin-header h2 { 
+        margin: 0 0 8px 0; 
+        font-size: 22px; 
+    }
+    
+    .etats-fin-header p { 
+        margin: 0; 
+        opacity: 0.9; 
+        font-size: 16px; 
+    }
+    
+    /* Sections accordéon */
+    .etats-fin-section {
+        margin: 16px 0;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .section-header-ef {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px;
+        background: #f8f9fa;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 17px;
+        transition: background 0.2s;
+    }
+    
+    .section-header-ef:hover { 
+        background: #e9ecef; 
+    }
+    
+    .section-header-ef.active { 
+        background: #dee2e6; 
+    }
+    
+    .section-header-ef .arrow {
+        transition: transform 0.3s;
+        font-size: 18px;
+    }
+    
+    .section-header-ef.active .arrow { 
+        transform: rotate(90deg); 
+    }
+    
+    .section-content-ef {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background: white;
+    }
+    
+    .section-content-ef.active { 
+        max-height: 10000px; 
+    }
+    
+    /* Tables liasse */
     .liasse-table {
         width: 100%;
         border-collapse: collapse;

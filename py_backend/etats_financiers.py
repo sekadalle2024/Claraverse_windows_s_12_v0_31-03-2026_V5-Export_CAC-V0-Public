@@ -1545,7 +1545,152 @@ async def process_excel(request: ExcelUploadRequest):
                 traceback.print_exc()
             
             # Générer le HTML au format liasse
-            html = generate_css_liasse()
+            # CSS complet avec accordéons (inline pour éviter problèmes de cache)
+            html = """
+    <style>
+    /* Container principal */
+    .etats-fin-container {
+        font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        max-width: 100%;
+        margin: 16px 0;
+    }
+    
+    .etats-fin-header {
+        background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        color: white;
+        padding: 20px;
+        border-radius: 12px 12px 0 0;
+        text-align: center;
+    }
+    
+    .etats-fin-header h2 { 
+        margin: 0 0 8px 0; 
+        font-size: 22px; 
+    }
+    
+    .etats-fin-header p { 
+        margin: 0; 
+        opacity: 0.9; 
+        font-size: 16px; 
+    }
+    
+    /* Sections accordéon */
+    .etats-fin-section {
+        margin: 16px 0;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .section-header-ef {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px;
+        background: #f8f9fa;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 17px;
+        transition: background 0.2s;
+    }
+    
+    .section-header-ef:hover { 
+        background: #e9ecef; 
+    }
+    
+    .section-header-ef.active { 
+        background: #dee2e6; 
+    }
+    
+    .section-header-ef .arrow {
+        transition: transform 0.3s;
+        font-size: 18px;
+    }
+    
+    .section-header-ef.active .arrow { 
+        transform: rotate(90deg); 
+    }
+    
+    .section-content-ef {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background: white;
+    }
+    
+    .section-content-ef.active { 
+        max-height: 10000px; 
+    }
+    
+    /* Tables liasse */
+    .liasse-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 13px;
+    }
+    
+    .liasse-table thead {
+        background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        color: white;
+    }
+    
+    .liasse-table th {
+        padding: 12px 8px;
+        text-align: left;
+        font-weight: 600;
+        border: 1px solid #2563eb;
+    }
+    
+    .liasse-table tbody tr {
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .liasse-table tbody tr:hover {
+        background: #f9fafb;
+    }
+    
+    .liasse-table tbody tr.total-row {
+        background: #f0f9ff;
+        font-weight: 700;
+        border-top: 2px solid #3b82f6;
+        border-bottom: 2px solid #3b82f6;
+    }
+    
+    .liasse-table td {
+        padding: 8px;
+        border: 1px solid #e5e7eb;
+    }
+    
+    .liasse-table .ref-cell {
+        font-weight: 600;
+        color: #1e3a8a;
+        text-align: center;
+    }
+    
+    .liasse-table .libelle-cell {
+        color: #374151;
+    }
+    
+    .liasse-table .note-cell {
+        text-align: center;
+        color: #6b7280;
+        font-size: 11px;
+    }
+    
+    .liasse-table .montant-cell {
+        text-align: right;
+        font-family: 'Consolas', 'Courier New', monospace;
+        color: #059669;
+        font-weight: 500;
+    }
+    
+    .liasse-table .total-row .montant-cell {
+        color: #1e3a8a;
+        font-weight: 700;
+    }
+    </style>
+    """
             html += "<div class='etats-fin-container'>"
             html += "<div class='etats-fin-header'><h2>📊 États Financiers SYSCOHADA Révisé</h2><p>Format Liasse Officielle</p></div>"
             
