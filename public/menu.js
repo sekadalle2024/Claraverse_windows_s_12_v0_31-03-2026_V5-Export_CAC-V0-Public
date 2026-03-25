@@ -163,7 +163,6 @@
         {
           id: "rapports-audit", title: "Rapports d'Audit", icon: "📝",
           items: [
-            { text: "📋 Export Rapport Structuré", action: () => this.exportAuditReport(), shortcut: "Ctrl+Shift+R" },
             { text: "📄 Export Synthèse FRAP", action: () => this.exportAuditReport('synthese_frap') },
             { text: "📑 Export Rapport Provisoire", action: () => this.exportAuditReport('rapport_provisoire') },
             { text: "📖 Export Rapport Final", action: () => this.exportAuditReport('rapport_final') },
@@ -173,9 +172,7 @@
         {
           id: "rapports-cac", title: "Rapports CAC & Expert-Comptable", icon: "🎓",
           items: [
-            { text: "📊 Export Synthèse CAC", action: () => this.exportSyntheseCAC(), shortcut: "Ctrl+Shift+C" },
-            { text: "📋 Export Points Révision Comptes", action: () => this.exportPointsRevision() },
-            { text: "🔍 Export Points Contrôle Interne", action: () => this.exportPointsControleInterne() }
+            { text: "📊 Export Synthèse CAC (FRAP + Recos Révision + Recos CI)", action: () => this.exportSyntheseCAC(), shortcut: "Ctrl+Shift+C" }
           ]
         }
       ];
@@ -7312,16 +7309,41 @@
       try {
         this.showQuickNotification("📊 Export Synthèse CAC en cours...");
 
-        // Rechercher toutes les tables dans le chat
-        const chatContainer = document.querySelector('div[class*="prose"]') || document.body;
-        const allTables = Array.from(chatContainer.querySelectorAll('table'));
+        // Utiliser les mêmes sélecteurs que Flowise.js pour détecter les tables Claraverse
+        const CLARAVERSE_SELECTORS = {
+          CHAT_TABLES: "table.min-w-full.border.border-gray-200.dark\\:border-gray-700.rounded-lg",
+          PARENT_DIV: "div.prose.prose-base.dark\\:prose-invert.max-w-none"
+        };
+
+        // Rechercher le conteneur principal (prose div)
+        let chatContainer = document.querySelector(CLARAVERSE_SELECTORS.PARENT_DIV);
+        
+        if (!chatContainer) {
+          console.warn("⚠️ Conteneur prose non trouvé, essai avec main");
+          chatContainer = document.querySelector('main');
+        }
+        
+        if (!chatContainer) {
+          console.warn("⚠️ Main non trouvé, essai avec [role='main']");
+          chatContainer = document.querySelector('[role="main"]');
+        }
+        
+        if (!chatContainer) {
+          console.warn("⚠️ Aucun conteneur trouvé, utilisation de document.body");
+          chatContainer = document.body;
+        }
+        
+        // Utiliser le sélecteur spécifique Claraverse pour les tables
+        const allTables = Array.from(chatContainer.querySelectorAll(CLARAVERSE_SELECTORS.CHAT_TABLES));
+
+        console.log(`🔍 [Export CAC] Conteneur trouvé: ${chatContainer.tagName}${chatContainer.className ? '.' + chatContainer.className.split(' ')[0] : ''}`);
+        console.log(`🔍 [Export CAC] Sélecteur tables: ${CLARAVERSE_SELECTORS.CHAT_TABLES}`);
+        console.log(`🔍 [Export CAC] ${allTables.length} table(s) Claraverse trouvée(s)`);
 
         if (allTables.length === 0) {
-          this.showAlert("⚠️ Aucune table trouvée dans le chat.");
+          this.showAlert("⚠️ Aucune table Claraverse trouvée dans le chat.\n\nAssurez-vous que des tables FRAP, Recos Révision ou Recos CI sont présentes.\n\nLes tables doivent avoir les classes CSS Claraverse.");
           return;
         }
-
-        console.log(`🔍 [Export CAC] ${allTables.length} table(s) trouvée(s) dans le chat`);
 
         // Collecter les différents types de points d'audit
         const frapPoints = this.collectFrapPoints(allTables);
@@ -7347,8 +7369,8 @@
         };
 
         try {
-          // Appeler le backend Python
-          const response = await fetch('http://localhost:5000/api/word/export-synthese-cac', {
+          // Appeler le backend Python V2 (version fonctionnelle)
+          const response = await fetch('http://localhost:5000/export-synthese-cac-v2', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(requestData)
@@ -7551,6 +7573,8 @@
     collectRecosControleInternePoints(tables) {
       const recosPoints = [];
 
+      console.log(`🔍 [Recos CI] Analyse de ${tables.length} table(s)`);
+
       for (const table of tables) {
         const parentDiv = table.closest('div[class*="prose"]');
         if (!parentDiv) continue;
@@ -7561,17 +7585,34 @@
         const firstTable = tablesInDiv[0];
         const firstTableData = this.extractTableDataOptimized(firstTable);
         
+        // Debug: afficher le contenu de la première table
+        const firstCellContent = firstTableData.length > 0 && firstTableData[0].length > 0 
+          ? firstTableData[0][0] 
+          : '';
+        console.log(`🔍 [Recos CI] Première cellule: "${firstCellContent}"`);
+        
         // Vérifier si c'est une table Recos contrôle interne comptable
+        // Doit contenir "recos" ET "controle" ET "interne" ET "comptable" (tous ensemble)
         const isRecosCI = firstTableData.some(row => 
           row.some(cell => {
-            const cellLower = (cell || '').toLowerCase();
-            return (cellLower.includes('recos') || cellLower.includes('recommandation')) && 
-                   cellLower.includes('controle') && cellLower.includes('interne') && 
-                   cellLower.includes('comptable');
+            const cellLower = (cell || '').toLowerCase().replace(/\s+/g, ' ').trim();
+            const hasRecos = cellLower.includes('recos');
+            const hasControle = cellLower.includes('controle');
+            const hasInterne = cellLower.includes('interne');
+            const hasComptable = cellLower.includes('comptable');
+            
+            if (hasRecos || hasControle || hasInterne || hasComptable) {
+              console.log(`🔍 [Recos CI] Cellule: "${cell}" → recos:${hasRecos}, controle:${hasControle}, interne:${hasInterne}, comptable:${hasComptable}`);
+            }
+            
+            return hasRecos && hasControle && hasInterne && hasComptable;
           })
         );
 
-        if (!isRecosCI) continue;
+        if (!isRecosCI) {
+          console.log(`❌ [Recos CI] Table non reconnue comme Recos CI`);
+          continue;
+        }
 
         console.log(`✅ [Recos CI] Table détectée avec ${tablesInDiv.length} sous-tables`);
 

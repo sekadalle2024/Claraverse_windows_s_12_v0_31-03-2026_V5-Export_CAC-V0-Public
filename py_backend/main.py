@@ -150,6 +150,22 @@ try:
 except ImportError as e:
     logger.warning(f"⚠️ Export Synthèse CAC not available: {e}")
 
+# Export Synthèse CAC V2 (version programmatique sans template)
+try:
+    from export_synthese_cac_v2 import router as synthese_cac_v2_router
+    app.include_router(synthese_cac_v2_router)
+    logger.info("✅ Export Synthèse CAC V2 router loaded successfully")
+except ImportError as e:
+    logger.warning(f"⚠️ Export Synthèse CAC V2 not available: {e}")
+
+# Export Synthèse CAC FINAL (version avec template + contenu complet)
+try:
+    from export_synthese_cac_final import router as synthese_cac_final_router
+    app.include_router(synthese_cac_final_router)
+    logger.info("✅ Export Synthèse CAC FINAL router loaded successfully")
+except ImportError as e:
+    logger.warning(f"⚠️ Export Synthèse CAC FINAL not available: {e}")
+
 # Import and include the diffusers API router
 # Add CORS middleware
 app.add_middleware(
