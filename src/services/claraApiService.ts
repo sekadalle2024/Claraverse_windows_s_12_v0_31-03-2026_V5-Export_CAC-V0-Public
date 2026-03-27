@@ -918,7 +918,7 @@ export class ClaraApiService {
     }
 
     // ========================================================================
-    // FORMAT 5: CIA COURS — Array with "Sous-section" / "Sub-items" structure
+    // FORMAT 5: CIA COURS & METHODO AUDIT — Array with "Sous-section" / "Sub-items" structure
     // OU format avec erreur contenant du JSON dans un bloc markdown
     // ========================================================================
     
@@ -940,7 +940,7 @@ export class ClaraApiService {
           const cleanJson = jsonMatch[1].trim();
           const parsedData = JSON.parse(cleanJson);
           
-          // Vérifier si c'est bien une structure CIA COURS
+          // Vérifier si c'est bien une structure CIA COURS ou METHODO AUDIT
           if (parsedData && typeof parsedData === "object" && "Sous-section" in parsedData) {
             // Convertir en array si c'est un objet unique
             const dataArray = Array.isArray(parsedData) ? parsedData : [parsedData];
@@ -952,15 +952,24 @@ export class ClaraApiService {
               subItemsCount: dataArray[0]["Sub-items"]?.length || 0,
             });
             
-            const content = `__CIA_ACCORDION__${JSON.stringify(dataArray)}`;
-            console.log("🔍 === FIN ANALYSE (FORMAT 5 - CIA COURS Accordion depuis markdown) ===");
+            // Déterminer si c'est CIA COURS ou METHODO AUDIT basé sur le contexte
+            // On peut vérifier les métadonnées ou utiliser un marqueur spécifique
+            const isMethodoAudit = result[0].endpoint === "methodo_audit" || 
+                                   (dataArray[0]["Sous-section"] && 
+                                    dataArray[0]["Sous-section"].toLowerCase().includes("étape"));
+            
+            const content = isMethodoAudit 
+              ? `__CIA_METHODO_ACCORDION__${JSON.stringify(dataArray)}`
+              : `__CIA_ACCORDION__${JSON.stringify(dataArray)}`;
+            
+            console.log(`🔍 === FIN ANALYSE (FORMAT 5 - ${isMethodoAudit ? 'METHODO AUDIT' : 'CIA COURS'} Accordion depuis markdown) ===`);
             return {
               content,
               metadata: {
-                format: "cia_accordion",
+                format: isMethodoAudit ? "cia_methodo_accordion" : "cia_accordion",
                 timestamp: new Date().toISOString(),
                 totalSections: dataArray.length,
-                endpoint: "cia_cours_gemini",
+                endpoint: isMethodoAudit ? "methodo_audit" : "cia_cours_gemini",
                 extractedFromMarkdown: true,
               },
             };
@@ -980,24 +989,34 @@ export class ClaraApiService {
       "Sous-section" in result[0] &&
       "Sub-items" in result[0]
     ) {
+      // Déterminer si c'est CIA COURS ou METHODO AUDIT
+      // METHODO AUDIT a typiquement des étapes (Étape 1, Étape 2, etc.)
+      const firstSection = result[0]["Sous-section"] || "";
+      const isMethodoAudit = firstSection.toLowerCase().includes("étape") || 
+                             firstSection.toLowerCase().includes("etape");
+      
       console.log(
-        '✅ FORMAT 5 DETECTE: Réponse CIA COURS avec "Sous-section" / "Sub-items"',
+        `✅ FORMAT 5 DETECTE: Réponse ${isMethodoAudit ? 'METHODO AUDIT' : 'CIA COURS'} avec "Sous-section" / "Sub-items"`,
       );
       console.log("📊 Structure détectée:", {
         totalSections: result.length,
-        firstSection: result[0]["Sous-section"],
+        firstSection: firstSection,
         subItemsCount: result[0]["Sub-items"]?.length || 0,
+        isMethodoAudit: isMethodoAudit,
       });
       
-      const content = `__CIA_ACCORDION__${JSON.stringify(result)}`;
-      console.log("🔍 === FIN ANALYSE (FORMAT 5 - CIA COURS Accordion) ===");
+      const content = isMethodoAudit 
+        ? `__CIA_METHODO_ACCORDION__${JSON.stringify(result)}`
+        : `__CIA_ACCORDION__${JSON.stringify(result)}`;
+      
+      console.log(`🔍 === FIN ANALYSE (FORMAT 5 - ${isMethodoAudit ? 'METHODO AUDIT' : 'CIA COURS'} Accordion) ===`);
       return {
         content,
         metadata: {
-          format: "cia_accordion",
+          format: isMethodoAudit ? "cia_methodo_accordion" : "cia_accordion",
           timestamp: new Date().toISOString(),
           totalSections: result.length,
-          endpoint: "cia_cours_gemini",
+          endpoint: isMethodoAudit ? "methodo_audit" : "cia_cours_gemini",
         },
       };
     }
