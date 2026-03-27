@@ -1258,8 +1258,13 @@ export class ClaraApiService {
         requestBody = { data: structuredData };
         console.log("📦 Structured payload for n8n:", JSON.stringify(requestBody, null, 2));
       } else {
-        // Simple message without attachments - keep backward compatibility
-        requestBody = { question: message };
+        // Simple message without attachments - adapt field name based on endpoint
+        if (resolvedEndpoint.includes("methodo_audit")) {
+          requestBody = { output: message };
+          console.log("📝 Using 'output' field for methodo_audit endpoint");
+        } else {
+          requestBody = { question: message };
+        }
       }
 
       // Configuration étendue pour gérer CORS et timeouts
