@@ -1,5 +1,5 @@
-# CORRECTION SÉLECTEUR CSS - 26 MARS 2026
-
+# Correction Sélecteur CSS - Détection Tables
+**Date**: 26 Mars 2026
 **Date**: 26 Mars 2026  
 **Statut**: ✅ CORRIGÉ
 

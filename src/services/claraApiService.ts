@@ -120,6 +120,24 @@ export class ClaraApiService {
     } else if (msg.includes("Rapport de synthèse CAC")) {
       // Case 27 (Rapport de synthèse CAC)
       routeKey = "rapport_synthese_cac";
+    } else if (msg.includes("Methodo audit") || msg.includes("Methodologie audit")) {
+      // Case 28 (Methodo audit)
+      routeKey = "methodo_audit";
+    } else if (msg.includes("Guide des commandes") || msg.includes("guide des commandes")) {
+      // Case 29 (Guide des commandes)
+      routeKey = "guide_des_commandes";
+    } else if (msg.includes("Guide intelligent") || msg.includes("guide intelligent")) {
+      // Case 30 (Guide intelligent)
+      routeKey = "guide_intelligent";
+    } else if (msg.includes("Guide menu contextuel")) {
+      // Case 31 (Guide menu contextuel)
+      routeKey = "guide_menu_contextuel";
+    } else if (msg.includes("Guide produit")) {
+      // Case 32 (Guide produit)
+      routeKey = "guide_produit";
+    } else if (msg.includes("Methodo revision") || msg.includes("Methodologie revision")) {
+      // Case 33 (Methodo revision)
+      routeKey = "methodo_revision";
     } else if (msg.includes("Design")) {
       routeKey = "design";
     } else if (msg.includes("n8n_doc")) {
@@ -257,6 +275,36 @@ export class ClaraApiService {
       case "rapport_synthese_cac":
         console.log("🔀 Router → Case 27 : rapport_synthese_cac");
         return "https://t22wtwxl.rpcld.app/webhook/rapport_synthese_cac";
+
+      // ── Case 28 : Methodo audit ──────────────────────────────────────────
+      case "methodo_audit":
+        console.log("🔀 Router → Case 28 : methodo_audit");
+        return "http://localhost:5678/webhook/methodo_audit";
+
+      // ── Case 29 : Guide des commandes ────────────────────────────────────
+      case "guide_des_commandes":
+        console.log("🔀 Router → Case 29 : guide_des_commandes");
+        return "http://localhost:5678/webhook/guide_des_commandes";
+
+      // ── Case 30 : Guide intelligent ──────────────────────────────────────
+      case "guide_intelligent":
+        console.log("🔀 Router → Case 30 : guide_intelligent");
+        return "http://localhost:5678/webhook/guide_intelligent";
+
+      // ── Case 31 : Guide menu contextuel ──────────────────────────────────
+      case "guide_menu_contextuel":
+        console.log("🔀 Router → Case 31 : guide_menu_contextuel");
+        return "http://localhost:5678/webhook/guide_menu_contextuel";
+
+      // ── Case 32 : Guide produit ──────────────────────────────────────────
+      case "guide_produit":
+        console.log("🔀 Router → Case 32 : guide_produit");
+        return "http://localhost:5678/webhook/guide_produit";
+
+      // ── Case 33 : Methodo revision ────────────────────────────────────────
+      case "methodo_revision":
+        console.log("🔀 Router → Case 33 : methodo_revision");
+        return "http://localhost:5678/webhook/methodo_revision";
 
       // ── Case 1 : défaut / Standard ──────────────────────────────────────
       case "default":

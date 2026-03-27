@@ -101,6 +101,8 @@ const MODES: ModeItem[] = [
   { id: 'normal', label: 'Normal', prefix: '' },
   { id: 'demo', label: 'Demo', prefix: '[Demo] = Activate\n' },
   { id: 'avance', label: 'Avancé', prefix: '[Mode] = Avancé\n' },
+  { id: 'methodo', label: 'Methodo audit', prefix: '[Mode] = Avancé\n[Guide Methodo] : Activate\n' },
+  { id: 'guide-commandes', label: 'Guide des commandes', prefix: '[Mode] = Avancé\n[Guide des commandes] : Activate\n' },
   { id: 'manuel', label: 'Manuel', prefix: '[Mode] = Manuel\n' }
 ];
 
@@ -144,6 +146,32 @@ const MENU_DATA: LogicielItem[] = [
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
 [Nb de lignes] = 30`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Cartographie des risques
+[Etape de mission] = Collecte documentaire
+[Modele] : Processus, document, Direction, operationnel
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 30`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Cartographie des risques
+[Etape de mission] = Collecte documentaire
+[Modele] : Processus, document, Direction, operationnel
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
+[Nb de lignes] = 30`
               }
             ]
           },
@@ -172,6 +200,32 @@ const MENU_DATA: LogicielItem[] = [
 [Modele] : Processus, sous processus, Questionnaire de prise de connaissance
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
+[Nb de lignes] = 30`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Collecte documentaire
+[Etape de mission] = Questionnaire prise de connaissance
+[Modele] : Processus, sous processus, Questionnaire de prise de connaissance
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 30`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Collecte documentaire
+[Etape de mission] = Questionnaire prise de connaissance
+[Modele] : Processus, sous processus, Questionnaire de prise de connaissance
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
 [Nb de lignes] = 30`
               }
             ]
@@ -202,6 +256,32 @@ const MENU_DATA: LogicielItem[] = [
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
 [Nb de lignes] = 30`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Questionnaire prise de connaissance
+[Etape de mission] = Cartographie des processus
+[Modele] : Cycle, Processus, sous processus, operations
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 30`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Questionnaire prise de connaissance
+[Etape de mission] = Cartographie des processus
+[Modele] : Cycle, Processus, sous processus, operations
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
+[Nb de lignes] = 30`
               }
             ]
           },
@@ -227,6 +307,32 @@ const MENU_DATA: LogicielItem[] = [
 [Integration] = integration_min
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
+[Nb de lignes] = 40`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = /Cartographie des risques
+[Processus] = Sécurité trésorerie
+[Modele] : operationnel, risque, évaluation risque, probabilité, impact, controle audit
+[Matrice de criticite] = Matrice numerique - 5 niveau
+[Integration] = integration_min
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 40`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = /Cartographie des risques
+[Processus] = Sécurité trésorerie
+[Modele] : operationnel, risque, évaluation risque, probabilité, impact, controle audit
+[Matrice de criticite] = Matrice numerique - 5 niveau
+[Integration] = integration_min
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
 [Nb de lignes] = 40`
               }
             ]
@@ -257,6 +363,32 @@ const MENU_DATA: LogicielItem[] = [
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
 [Nb de lignes] = 30`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Cartographie des risques
+[Etape de mission] = Referentiel de controle interne
+[Modele] : Processus, Tache clé, objectif de contrôle, risques, contrôles clé
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 30`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Cartographie des risques
+[Etape de mission] = Referentiel de controle interne
+[Modele] : Processus, Tache clé, objectif de contrôle, risques, contrôles clé
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
+[Nb de lignes] = 30`
               }
             ]
           },
@@ -286,6 +418,32 @@ const MENU_DATA: LogicielItem[] = [
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
 [Nb de lignes] = 30`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Referentiel de controle interne
+[Etape de mission] = Rapport d'orientation
+[Modele] : Processus, Objectifs generaux de contrôle interne, Objectifs spécifiques
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 30`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Referentiel de controle interne
+[Etape de mission] = Rapport d'orientation
+[Modele] : Processus, Objectifs generaux de contrôle interne, Objectifs spécifiques
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
+[Nb de lignes] = 30`
               }
             ]
           },
@@ -312,6 +470,34 @@ const MENU_DATA: LogicielItem[] = [
 [Directive] = Cibler uniquement les operations d'inventaire de caisse en priorite
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
+[Nb de lignes] = 20`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = Programme de travail
+[Processus] = inventaire de caisse
+[Modele] : Point de controle, Risque, assertion, anomalie courantes, document
+[Extension] = objectif de controle, document
+[Integration] = integration_min
+[Directive] = Cibler uniquement les operations d'inventaire de caisse en priorite
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 20`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Programme de travail
+[Processus] = inventaire de caisse
+[Modele] : Point de controle, Risque, assertion, anomalie courantes, document
+[Extension] = objectif de controle, document
+[Integration] = integration_min
+[Directive] = Cibler uniquement les operations d'inventaire de caisse en priorite
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
 [Nb de lignes] = 20`
               }
             ]
@@ -365,6 +551,30 @@ const MENU_DATA: LogicielItem[] = [
 [Constat] = inexistence de rapprochement bancaires signés pour les mois de juin a decembre 2025
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = /Frap
+[Processus] = Elaboration des rapprochement bancaires
+[Assertion] = validité, formalisation
+[Anomalie] = les rapprochements bancaire ne sont pas verifié par le DAF
+[Constat] = inexistence de rapprochement bancaires signés pour les mois de juin a decembre 2025
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = /Frap
+[Processus] = Elaboration des rapprochement bancaires
+[Assertion] = validité, formalisation
+[Anomalie] = les rapprochements bancaire ne sont pas verifié par le DAF
+[Constat] = inexistence de rapprochement bancaires signés pour les mois de juin a decembre 2025
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate`
               }
             ]
           },
@@ -389,6 +599,28 @@ const MENU_DATA: LogicielItem[] = [
 [Étape mission] = Synthèse des Frap
 [Modèle] = 
 [Pièces jointes] = Frap de la mission`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = /Table synthese
+[Command Manuel] = Étape mission
+[Étape précédente] = Frap
+[Étape mission] = Synthèse des Frap
+[Modèle] = 
+[Pièces jointes] = Frap de la mission
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = /Table synthese
+[Command Manuel] = Étape mission
+[Étape précédente] = Frap
+[Étape mission] = Synthèse des Frap
+[Modèle] = 
+[Pièces jointes] = Frap de la mission
+[Guide des commandes] : Activate`
               }
             ]
           },
@@ -413,6 +645,28 @@ const MENU_DATA: LogicielItem[] = [
 [Étape mission] = Rapport provisoire
 [Modèle] = 
 [Pièces jointes] = Synthèse des Frap`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = /Table rapport_provisoire
+[Command Manuel] = Étape mission
+[Étape précédente] = Synthèse des Frap
+[Étape mission] = Rapport provisoire
+[Modèle] = 
+[Pièces jointes] = Synthèse des Frap
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = /Table rapport_provisoire
+[Command Manuel] = Étape mission
+[Étape précédente] = Synthèse des Frap
+[Étape mission] = Rapport provisoire
+[Modèle] = 
+[Pièces jointes] = Synthèse des Frap
+[Guide des commandes] : Activate`
               }
             ]
           },
@@ -446,6 +700,28 @@ const MENU_DATA: LogicielItem[] = [
 [Étape mission] = Rapport final
 [Modèle] = 
 [Pièces jointes] = Rapport provisoire`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = /Table rapport_final
+[Command Manuel] = Étape mission
+[Étape précédente] = Rapport provisoire
+[Etape mission] = Rapport final
+[Modèle] = 
+[Pièces jointes] = Rapport provisoire
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = /Table rapport_final
+[Command Manuel] = Étape mission
+[Étape précédente] = Rapport provisoire
+[Étape mission] = Rapport final
+[Modèle] = 
+[Pièces jointes] = Rapport provisoire
+[Guide des commandes] : Activate`
               }
             ]
           },
@@ -470,6 +746,28 @@ const MENU_DATA: LogicielItem[] = [
 [Étape mission] = Suivi des recos
 [Modèle] = 
 [Pièces jointes] = Rapport final`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = /Table suivi_recos
+[Command Manuel] = Étape mission
+[Étape précédente] = Rapport final
+[Étape mission] = Suivi des recos
+[Modèle] = 
+[Pièces jointes] = Rapport final
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = /Table suivi_recos
+[Command Manuel] = Étape mission
+[Étape précédente] = Rapport final
+[Étape mission] = Suivi des recos
+[Modèle] = 
+[Pièces jointes] = Rapport final
+[Guide des commandes] : Activate`
               }
             ]
           }
@@ -517,6 +815,34 @@ const MENU_DATA: LogicielItem[] = [
 [Integration] = Design
 [Demo] = Activate
 [Nb de lignes] = 10`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo revision',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[test] : DD155
+[Etape précédente] = Prise de connaissance du domaine audite
+[Etape de mission] = Design
+[Modele] : Sous processus, Objectif de contrôle, Taches cle, Questionnaire identification risque, Assertion, Dispositif de maitrises des risques du client, Contrôle cle attendus, references documentaire, Anomalies, Conclusion
+[Directive] = Remplir toutes les colonnes en simulant des lignes satisfaisante t des lignes non satisfaisantes
+[Integration] = Design
+[Guide Methodo] : Activate
+[Nb de lignes] = 10`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[test] : DD155
+[Etape précédente] = Prise de connaissance du domaine audite
+[Etape de mission] = Design
+[Modele] : Sous processus, Objectif de contrôle, Taches cle, Questionnaire identification risque, Assertion, Dispositif de maitrises des risques du client, Contrôle cle attendus, references documentaire, Anomalies, Conclusion
+[Directive] = Remplir toutes les colonnes en simulant des lignes satisfaisante t des lignes non satisfaisantes
+[Integration] = Design
+[Guide des commandes] : Activate
+[Nb de lignes] = 10`
               }
             ]
           },
@@ -559,6 +885,42 @@ Contenu de [Contexte de base]
 [Integration] = Implementation_modelisation
 [Demo] = Activate
 [Nb de lignes] = 25`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo revision',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[test] : DD155
+[Etape précédente] = Design du contrôle interne
+[Etape de mission] = Implementation du contrôle interne
+[Contexte de base]
+Description de [Contexte de base]
+[Contexte de base] contient les resultat des test sur le Design. Notre objectif est de faire des test pour confirmer ou infirmer l implementation des controle cle selon les resultats des test de design
+Contenu de [Contexte de base]
+{ "Etape mission - Design": [ { "table 1": { "Etape": "Programme de travail / Questionnaire de Contrôle Interne", "Normes": "Norme 2240 - Programme de travail de la mission", "Reference": "PRG-TRESO-002", "Methode": "Méthode des assertions par les objectifs de contrôle" } }, { "table 2": [ { "no": 1, "Sous processus": "Organisation et Séparation des tâches", "Objectif de contrôle": "Garantir l'indépendance de la fonction de rapprochement bancaire.", "Taches cle": "Définition des rôles", "Questionnaire identification risque": "La personne effectuant le rapprochement est-elle indépendante de la tenue de la caisse et de l'émission des paiements ?", "Assertion": "Séparation des exercices", "Dispositif de maitrises des risques du client": "Le comptable fournisseurs effectue les paiements et réalise également le rapprochement bancaire sur le logiciel Sage.", "Contrôle cle attendus": "Le Responsable Administratif et Financier s'assure que l'agent en charge du rapprochement n'a pas accès aux moyens de paiement ni aux écritures de caisse.", "references documentaire": "Fiches de poste, Matrice des droits d'accès SI", "Anomalies": "Cumul de fonctions incompatible créant un risque de dissimulation de fraude.", "Conclusion": "Non-Satisfaisant" } ] } ] }
+[Modele] : Objectif de contrôle, Travaux a effectuer, Resultat, Tableau de test , Document de test, Echantillon, Conclusion
+[Integration] = Implementation_modelisation
+[Guide Methodo] : Activate
+[Nb de lignes] = 25`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[test] : DD155
+[Etape précédente] = Design du contrôle interne
+[Etape de mission] = Implementation du contrôle interne
+[Contexte de base]
+Description de [Contexte de base]
+[Contexte de base] contient les resultat des test sur le Design. Notre objectif est de faire des test pour confirmer ou infirmer l implementation des controle cle selon les resultats des test de design
+Contenu de [Contexte de base]
+{ "Etape mission - Design": [ { "table 1": { "Etape": "Programme de travail / Questionnaire de Contrôle Interne", "Normes": "Norme 2240 - Programme de travail de la mission", "Reference": "PRG-TRESO-002", "Methode": "Méthode des assertions par les objectifs de contrôle" } }, { "table 2": [ { "no": 1, "Sous processus": "Organisation et Séparation des tâches", "Objectif de contrôle": "Garantir l'indépendance de la fonction de rapprochement bancaire.", "Taches cle": "Définition des rôles", "Questionnaire identification risque": "La personne effectuant le rapprochement est-elle indépendante de la tenue de la caisse et de l'émission des paiements ?", "Assertion": "Séparation des exercices", "Dispositif de maitrises des risques du client": "Le comptable fournisseurs effectue les paiements et réalise également le rapprochement bancaire sur le logiciel Sage.", "Contrôle cle attendus": "Le Responsable Administratif et Financier s'assure que l'agent en charge du rapprochement n'a pas accès aux moyens de paiement ni aux écritures de caisse.", "references documentaire": "Fiches de poste, Matrice des droits d'accès SI", "Anomalies": "Cumul de fonctions incompatible créant un risque de dissimulation de fraude.", "Conclusion": "Non-Satisfaisant" } ] } ] }
+[Modele] : Objectif de contrôle, Travaux a effectuer, Resultat, Tableau de test , Document de test, Echantillon, Conclusion
+[Integration] = Implementation_modelisation
+[Guide des commandes] : Activate
+[Nb de lignes] = 25`
               }
             ]
           },
@@ -591,6 +953,32 @@ Contenu de [Contexte de base]
 [Integration] = Implementation_cartographie
 [Demo] = Activate
 [Nb de lignes] = 25`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo revision',
+                command: `[Command] = Evaluation des risques
+[Processus] = Controle des rapprochements bancaires
+[Modele] : Sous processus, Taches cle, Assertion, risque, évaluation risque, probabilité, impact, controle audit
+[Matrice de criticite] = Matrice alphabetique - 4 niveau
+[Contexte de base]
+[Modelisation] : les informations des rapprochements bancaires
+[Integration] = Implementation_cartographie
+[Guide Methodo] : Activate
+[Nb de lignes] = 25`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Evaluation des risques
+[Processus] = Controle des rapprochements bancaires
+[Modele] : Sous processus, Taches cle, Assertion, risque, évaluation risque, probabilité, impact, controle audit
+[Matrice de criticite] = Matrice alphabetique - 4 niveau
+[Contexte de base]
+[Modelisation] : les informations des rapprochements bancaires
+[Integration] = Implementation_cartographie
+[Guide des commandes] : Activate
+[Nb de lignes] = 25`
               }
             ]
           },
@@ -620,6 +1008,30 @@ Contenu de [Contexte de base]
 [Modelisation] : les informations des rapprochements bancaires
 [Integration] = Implementation_programme_controle
 [Demo] = Activate
+[Nb de lignes] = 25`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo revision',
+                command: `[Command] = Couverture
+[Processus] = Controle des rapprochements bancaires
+[Contrôle] = voir table 2
+[Contexte de base]
+[Modelisation] : les informations des rapprochements bancaires
+[Integration] = Implementation_programme_controle
+[Guide Methodo] : Activate
+[Nb de lignes] = 25`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Couverture
+[Processus] = Controle des rapprochements bancaires
+[Contrôle] = voir table 2
+[Contexte de base]
+[Modelisation] : les informations des rapprochements bancaires
+[Integration] = Implementation_programme_controle
+[Guide des commandes] : Activate
 [Nb de lignes] = 25`
               }
             ]
@@ -651,6 +1063,30 @@ Contenu de [Contexte de base]
 [Contexte de base]
 [Integration] = Programme_controle_comptes
 [Demo] = Activate`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo revision',
+                command: `[Command] = Couverture
+[Processus] = Controle des rapprochements bancaires
+[Modele] : Cycle, Domaines, Test, Controle audit, Objectif, Evaluation globale des risques, Echantillon
+[Programme standard]
+[Modelisation] : les informations des rapprochements bancaires
+[Contexte de base]
+[Integration] = Programme_controle_comptes
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Couverture
+[Processus] = Controle des rapprochements bancaires
+[Modele] : Cycle, Domaines, Test, Controle audit, Objectif, Evaluation globale des risques, Echantillon
+[Programme standard]
+[Modelisation] : les informations des rapprochements bancaires
+[Contexte de base]
+[Integration] = Programme_controle_comptes
+[Guide des commandes] : Activate`
               }
             ]
           }
@@ -682,6 +1118,28 @@ Contenu de [Contexte de base]
 [Objectif] = 
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo revision',
+                command: `[Command] = Revue analytique
+[Processus] = 
+[Période] = 
+[Objectif] = 
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Revue analytique
+[Processus] = 
+[Période] = 
+[Objectif] = 
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate`
               }
             ]
           },
@@ -707,6 +1165,28 @@ Contenu de [Contexte de base]
 [Seuil] = 
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo revision',
+                command: `[Command] = Analyse des variations
+[Compte] = 
+[Période] = 
+[Seuil] = 
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Analyse des variations
+[Compte] = 
+[Période] = 
+[Seuil] = 
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate`
               }
             ]
           }
@@ -2010,6 +2490,30 @@ Contenu de [Contexte de base]
 [Nature de test] = [Rapprochement]
 [Assertion] = validité
 [Anomalie] = inexistence de pièce justificatives de caisse de 600 0000 FCFA sur les petites depenses fournisseurs`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo revision',
+                command: `[Command] : Recos revision des comptes
+[Cycle] : trésorerie
+[test] : AA040
+[reference] : test sur la validation du compte caisse
+[Nature de test] = [Rapprochement]
+[Assertion] = validité
+[Anomalie] = inexistence de pièce justificatives de caisse de 600 0000 FCFA sur les petites depenses fournisseurs
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] : Recos revision des comptes
+[Cycle] : trésorerie
+[test] : AA040
+[reference] : test sur la validation du compte caisse
+[Nature de test] = [Rapprochement]
+[Assertion] = validité
+[Anomalie] = inexistence de pièce justificatives de caisse de 600 0000 FCFA sur les petites depenses fournisseurs
+[Guide des commandes] : Activate`
               }
             ]
           },
@@ -2028,6 +2532,30 @@ Contenu de [Contexte de base]
 [Nature de test] = [Rapprochement]
 [Assertion] = validité
 [Anomalie] = inexistence de pièce justificatives de caisse de 600 0000 FCFA sur les petites depenses fournisseurs`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo revision',
+                command: `[Command] : Recos contrôle interne comptable
+[Cycle] : trésorerie
+[test] : AA010
+[reference] : test sur la validation du compte caisse
+[Nature de test] = [Rapprochement]
+[Assertion] = validité
+[Anomalie] = inexistence de pièce justificatives de caisse de 600 0000 FCFA sur les petites depenses fournisseurs
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] : Recos contrôle interne comptable
+[Cycle] : trésorerie
+[test] : AA010
+[reference] : test sur la validation du compte caisse
+[Nature de test] = [Rapprochement]
+[Assertion] = validité
+[Anomalie] = inexistence de pièce justificatives de caisse de 600 0000 FCFA sur les petites depenses fournisseurs
+[Guide des commandes] : Activate`
               }
             ]
           },
@@ -2040,6 +2568,18 @@ Contenu de [Contexte de base]
                 id: 'normal',
                 label: 'Normal',
                 command: `[Command] : Rapport de synthèse CAC`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo revision',
+                command: `[Command] : Rapport de synthèse CAC
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] : Rapport de synthèse CAC
+[Guide des commandes] : Activate`
               }
             ]
           }
@@ -2788,6 +3328,32 @@ Contenu de [Contexte de base]
 [Nb de lignes] = 50`
               },
               {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Cartographie des processus
+[Etape de mission] = Question Identification des risques
+[Modele] : Processus, sous processus, Questionnaire Identification des risques, Dispositif de maitrise des risques attendus
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Cartographie des processus
+[Etape de mission] = Question Identification des risques
+[Modele] : Processus, sous processus, Questionnaire Identification des risques, Dispositif de maitrise des risques attendus
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
+[Nb de lignes] = 50`
+              },
+              {
                 id: 'database',
                 label: 'Database',
                 command: `[Command] = Etape de mission
@@ -2842,6 +3408,32 @@ Contenu de [Contexte de base]
 [Modele] = sous processus, Point de controle, risque
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Question Identification des risques
+[Etape de mission] = Identification des risques
+[Modele] : sous processus, Point de controle, risque
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Question Identification des risques
+[Etape de mission] = Identification des risques
+[Modele] : sous processus, Point de controle, risque
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
 [Nb de lignes] = 50`
               },
               {
@@ -2902,6 +3494,32 @@ Contenu de [Contexte de base]
 [Nb de lignes] = 50`
               },
               {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Identification des risques
+[Etape de mission] = Evaluation des risques
+[Modele] : Point de controle, risque, évaluation risque, probabilité, impact
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Identification des risques
+[Etape de mission] = Evaluation des risques
+[Modele] : Point de controle, risque, évaluation risque, probabilité, impact
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
+[Nb de lignes] = 50`
+              },
+              {
                 id: 'database',
                 label: 'Database',
                 command: `[Command] = Etape de mission
@@ -2956,6 +3574,32 @@ Contenu de [Contexte de base]
 [Modele] = Point de controle, risque, évaluation risque, probabilité, impact, Plan d'action de couverture des risques
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Evaluation des risques
+[Etape de mission] = Plan d'action de couverture des risques
+[Modele] : Point de controle, risque, évaluation risque, probabilité, impact, Plan d'action de couverture des risques
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate
+[Nb de lignes] = 50`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = Etape de mission
+[Processus] = rapprochements bancaires
+[Etape précédente] = Evaluation des risques
+[Etape de mission] = Plan d'action de couverture des risques
+[Modele] : Point de controle, risque, évaluation risque, probabilité, impact, Plan d'action de couverture des risques
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate
 [Nb de lignes] = 50`
               },
               {
@@ -3187,6 +3831,30 @@ Contenu de [Contexte de base]
 [Constat] = inexistence de rapprochement bancaires signés pour les mois de juin a decembre 2025
 [Variable 1] = Contenu de [Variable 1]
 [Variable 2] = Contenu de [Variable 2]`
+              },
+              {
+                id: 'methodo',
+                label: 'Methodo audit',
+                command: `[Command] = /Frap
+[Processus] = Elaboration des rapprochement bancaires
+[Assertion] = validité, formalisation
+[Anomalie] = les rapprochements bancaire ne sont pas verifié par le DAF
+[Constat] = inexistence de rapprochement bancaires signés pour les mois de juin a decembre 2025
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide Methodo] : Activate`
+              },
+              {
+                id: 'guide-commandes',
+                label: 'Guide des commandes',
+                command: `[Command] = /Frap
+[Processus] = Elaboration des rapprochement bancaires
+[Assertion] = validité, formalisation
+[Anomalie] = les rapprochements bancaire ne sont pas verifié par le DAF
+[Constat] = inexistence de rapprochement bancaires signés pour les mois de juin a decembre 2025
+[Variable 1] = Contenu de [Variable 1]
+[Variable 2] = Contenu de [Variable 2]
+[Guide des commandes] : Activate`
               }
             ]
           },
@@ -4037,6 +4705,8 @@ const getModeIcon = (modeId: string) => {
     case 'normal': return <User className="w-4 h-4" />;
     case 'demo': return <Play className="w-4 h-4" />;
     case 'avance': return <Zap className="w-4 h-4" />;
+    case 'methodo': return <BookOpen className="w-4 h-4" />;
+    case 'guide-commandes': return <GraduationCap className="w-4 h-4" />;
     case 'database': return <Zap className="w-4 h-4" />;
     case 'document': return <Zap className="w-4 h-4" />;
     case 'manuel': return <Settings className="w-4 h-4" />;
