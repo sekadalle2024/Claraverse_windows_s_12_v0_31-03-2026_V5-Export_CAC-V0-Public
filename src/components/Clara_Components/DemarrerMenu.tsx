@@ -1040,60 +1040,252 @@ Contenu de [Contexte de base]
 [Nb de lignes] = 25`
               }
             ]
-          },
-          {
-            id: 'programme-controle-comptes',
-            label: 'Programme de controle des comptes',
+          },          {
+            id: 'matrice-controle-comptes',
+            label: 'Matrice de contrôle des comptes',
             icon: <CheckSquare className="w-4 h-4" />,
             modes: [
               {
-                id: 'normal',
-                label: 'Normal',
-                command: `[Command] = Couverture
-[Processus] = Controle des rapprochements bancaires
-[Modele] : Cycle, Domaines, Test, Controle audit, Objectif, Evaluation globale des risques, Echantillon
-[Programme standard]
-[Modelisation] : les informations des rapprochements bancaires
-[Contexte de base]
-[Integration] = Programme_controle_comptes`
+                id: 'tresorerie-r1',
+                label: 'Trésorerie - Risque 1',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Trésorerie
+[Niveau de risque R] = 1
+[Assertion] = Validité`
               },
               {
-                id: 'demo',
-                label: 'Demo',
-                command: `[Command] = Couverture
-[Processus] = Controle des rapprochements bancaires
-[Modele] : Cycle, Domaines, Test, Controle audit, Objectif, Evaluation globale des risques, Echantillon
-[Programme standard]
-[Modelisation] : les informations des rapprochements bancaires
-[Contexte de base]
-[Integration] = Programme_controle_comptes
-[Demo] = Activate`
+                id: 'tresorerie-r2',
+                label: 'Trésorerie - Risque 2',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Trésorerie
+[Niveau de risque R] = 2
+[Assertion] = Validité, Exhaustivité`
               },
               {
-                id: 'methodo',
-                label: 'Methodo revision',
-                command: `[Command] = Couverture
-[Processus] = Controle des rapprochements bancaires
-[Modele] : Cycle, Domaines, Test, Controle audit, Objectif, Evaluation globale des risques, Echantillon
-[Programme standard]
-[Modelisation] : les informations des rapprochements bancaires
-[Contexte de base]
-[Integration] = Programme_controle_comptes
-[Methodo revision] : Activate`
+                id: 'tresorerie-r3',
+                label: 'Trésorerie - Risque 3',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Trésorerie
+[Niveau de risque R] = 3
+[Assertion] = Validité, Exhaustivité, Comptabilisation, Séparation des périodes`
               },
               {
-                id: 'guide-commandes',
-                label: 'Guide des commandes',
-                command: `[Command] = Couverture
-[Processus] = Controle des rapprochements bancaires
-[Modele] : Cycle, Domaines, Test, Controle audit, Objectif, Evaluation globale des risques, Echantillon
-[Programme standard]
-[Modelisation] : les informations des rapprochements bancaires
-[Contexte de base]
-[Integration] = Programme_controle_comptes
-[Guide des commandes] : Activate`
+                id: 'ventes-r1',
+                label: 'Ventes - Risque 1',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Ventes
+[Niveau de risque R] = 1
+[Assertion] = Validité`
+              },
+              {
+                id: 'ventes-r2',
+                label: 'Ventes - Risque 2',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Ventes
+[Niveau de risque R] = 2
+[Assertion] = Validité, Exhaustivité`
+              },
+              {
+                id: 'ventes-r3',
+                label: 'Ventes - Risque 3',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Ventes
+[Niveau de risque R] = 3
+[Assertion] = Validité, Exhaustivité, Comptabilisation, Séparation des périodes`
+              },
+              {
+                id: 'stocks-r1',
+                label: 'Stocks - Risque 1',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Stock
+[Niveau de risque R] = 1
+[Assertion] = Validité`
+              },
+              {
+                id: 'stocks-r2',
+                label: 'Stocks - Risque 2',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Stock
+[Niveau de risque R] = 2
+[Assertion] = Validité, Exhaustivité`
+              },
+              {
+                id: 'stocks-r3',
+                label: 'Stocks - Risque 3',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Stock
+[Niveau de risque R] = 3
+[Assertion] = Validité, Exhaustivité, Comptabilisation, Évaluation`
+              },
+              {
+                id: 'capitaux-propres-r1',
+                label: 'Capitaux propres - Risque 1',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : capitaux propres
+[Niveau de risque R] = 1
+[Assertion] = Validité`
+              },
+              {
+                id: 'capitaux-propres-r2',
+                label: 'Capitaux propres - Risque 2',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : capitaux propres
+[Niveau de risque R] = 2
+[Assertion] = Validité, Exhaustivité`
+              },
+              {
+                id: 'capitaux-propres-r3',
+                label: 'Capitaux propres - Risque 3',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : capitaux propres
+[Niveau de risque R] = 3
+[Assertion] = Validité, Exhaustivité, Comptabilisation, Présentation`
+              },
+              {
+                id: 'achats-r1',
+                label: 'Achats - Risque 1',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : fournisseur
+[Niveau de risque R] = 1
+[Assertion] = Validité`
+              },
+              {
+                id: 'achats-r2',
+                label: 'Achats - Risque 2',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : fournisseur
+[Niveau de risque R] = 2
+[Assertion] = Validité, Exhaustivité`
+              },
+              {
+                id: 'achats-r3',
+                label: 'Achats - Risque 3',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : fournisseur
+[Niveau de risque R] = 3
+[Assertion] = Validité, Exhaustivité, Comptabilisation, Séparation des périodes`
+              },
+              {
+                id: 'immobilisations-r1',
+                label: 'Immobilisations - Risque 1',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Immobilisations
+[Niveau de risque R] = 1
+[Assertion] = Validité`
+              },
+              {
+                id: 'immobilisations-r2',
+                label: 'Immobilisations - Risque 2',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Immobilisations
+[Niveau de risque R] = 2
+[Assertion] = Validité, Exhaustivité`
+              },
+              {
+                id: 'immobilisations-r3',
+                label: 'Immobilisations - Risque 3',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : Immobilisations
+[Niveau de risque R] = 3
+[Assertion] = Validité, Exhaustivité, Comptabilisation, Évaluation`
+              },
+              {
+                id: 'personnel-r1',
+                label: 'Personnel - Risque 1',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : personnel
+[Niveau de risque R] = 1
+[Assertion] = Validité`
+              },
+              {
+                id: 'personnel-r2',
+                label: 'Personnel - Risque 2',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : personnel
+[Niveau de risque R] = 2
+[Assertion] = Validité, Exhaustivité`
+              },
+              {
+                id: 'personnel-r3',
+                label: 'Personnel - Risque 3',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : personnel
+[Niveau de risque R] = 3
+[Assertion] = Validité, Exhaustivité, Comptabilisation, Séparation des périodes`
+              },
+              {
+                id: 'emprunts-r1',
+                label: 'Emprunts - Risque 1',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : client
+[Niveau de risque R] = 1
+[Assertion] = Validité`
+              },
+              {
+                id: 'emprunts-r2',
+                label: 'Emprunts - Risque 2',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : client
+[Niveau de risque R] = 2
+[Assertion] = Validité, Exhaustivité`
+              },
+              {
+                id: 'emprunts-r3',
+                label: 'Emprunts - Risque 3',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : client
+[Niveau de risque R] = 3
+[Assertion] = Validité, Exhaustivité, Comptabilisation, Évaluation`
+              },
+              {
+                id: 'impot-taxes-r1',
+                label: 'Impôt et taxes - Risque 1',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : impôt et taxes
+[Niveau de risque R] = 1
+[Assertion] = Validité`
+              },
+              {
+                id: 'impot-taxes-r2',
+                label: 'Impôt et taxes - Risque 2',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : impôt et taxes
+[Niveau de risque R] = 2
+[Assertion] = Validité, Exhaustivité`
+              },
+              {
+                id: 'impot-taxes-r3',
+                label: 'Impôt et taxes - Risque 3',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : impôt et taxes
+[Niveau de risque R] = 3
+[Assertion] = Validité, Exhaustivité, Comptabilisation, Séparation des périodes`
+              },
+              {
+                id: 'charge-exploitation-r1',
+                label: 'Charge d\'exploitation - Risque 1',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : charge d'exploitation
+[Niveau de risque R] = 1
+[Assertion] = Validité`
+              },
+              {
+                id: 'charge-exploitation-r2',
+                label: 'Charge d\'exploitation - Risque 2',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : charge d'exploitation
+[Niveau de risque R] = 2
+[Assertion] = Validité, Exhaustivité`
+              },
+              {
+                id: 'charge-exploitation-r3',
+                label: 'Charge d\'exploitation - Risque 3',
+                command: `[Command] : Programme_controle_comptes
+[Processus] : charge d'exploitation
+[Niveau de risque R] = 3
+[Assertion] = Validité, Exhaustivité, Comptabilisation, Séparation des périodes`
               }
-            ]
+]
           }
         ]
       },
